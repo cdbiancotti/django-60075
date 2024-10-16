@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title_head %}
+Eliminar Paleta
+{% endblock title_head %}
+{% block h1_header %}Eliminar Paleta{% endblock h1_header %}
+{% block main %}
+
+<form action={% url "productos:eliminar_paleta" paleta.id %} method="POST">
+    {% csrf_token %}
+    <p>Desea eliminar la paleta {{paleta}}?</p>
+
+    <input type="submit" value="Confirmar">
+</form>
+
+{% endblock main %}

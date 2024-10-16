@@ -14,7 +14,11 @@ Buscar Auto
 {% if autos %}
 <ul>
     {% for auto in autos %}
-    <li>{{auto}}</li>
+    <li>{{auto}} 
+        | <a href={% url "inicio:ver_auto" auto.id %}>Ver mas</a> 
+        | <a href={% url "inicio:editar_auto" auto.id %}>Editar</a>
+        | <a href={% url "inicio:eliminar_auto" auto.id %}>Eliminar</a> 
+    </li>
     {% endfor %}
 </ul>
 {% else %}

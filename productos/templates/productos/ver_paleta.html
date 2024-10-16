@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title_head %}
+Ver Paleta
+{% endblock title_head %}
+{% block h1_header %}{{paleta}}{% endblock h1_header %}
+{% block main %}
+
+<ul>
+    <li>Marca: {{paleta.marca}}</li>
+    <li>Modelo: {{paleta.modelo}}</li>
+    <li>Fecha: {{paleta.fecha}}</li>
+</ul>
+
+{% endblock main %}

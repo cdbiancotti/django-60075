@@ -27,10 +27,11 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href={% url "inicio:inicio" %}>Inicio</a>
-                <a class="navbar-brand" href={% url "inicio:primer_template" %}>Primer Template</a>
-                <a class="navbar-brand" href={% url "inicio:segundo_template" %}>Segundo Template</a>
+                {% comment %} <a class="navbar-brand" href={% url "inicio:primer_template" %}>Primer Template</a>
+                <a class="navbar-brand" href={% url "inicio:segundo_template" %}>Segundo Template</a> {% endcomment %}
                 <a class="navbar-brand" href={% url "inicio:buscar_auto" %}>Buscar Auto</a>
                 <a class="navbar-brand" href={% url "inicio:crear_auto" %}>Crear Auto</a>
+                <a class="navbar-brand" href={% url "productos:listado_paletas" %}>Paletas</a>
                 {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
             </div>
         </nav>
