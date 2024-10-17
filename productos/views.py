@@ -5,6 +5,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from productos.models import Paleta
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class CrearPaleta(CreateView):
@@ -18,11 +19,11 @@ class ListadoPaletas(ListView):
     template_name = "productos/listado_paletas.html"
     context_object_name = 'paletas'
     
-class VerPaleta(DetailView):
+class VerPaleta(LoginRequiredMixin, DetailView):
     model = Paleta
     template_name = "productos/ver_paleta.html"
 
-class EditarPaleta(UpdateView):
+class EditarPaleta(LoginRequiredMixin, UpdateView):
     model = Paleta
     template_name = "productos/editar_paleta.html"
     success_url = reverse_lazy('productos:listado_paletas')

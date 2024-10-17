@@ -4,6 +4,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from inicio.models import Auto
 from inicio.forms import CrearAutoFormulario, BuscarAutoFormulario, EditarAutoFormulario
+from django.contrib.auth.decorators import login_required
 
 def mi_vista(request):
     return HttpResponse('Hola soy la vista')
@@ -102,12 +103,13 @@ def ver_auto(request, id):
     auto = Auto.objects.get(id=id)
     return render(request, 'inicio/ver_auto.html', {'auto': auto})
 
-
+@login_required
 def eliminar_auto(request, id):
     auto = Auto.objects.get(id=id)
     auto.delete()
     return redirect('inicio:buscar_auto')
 
+@login_required
 def editar_auto(request, id):
     auto = Auto.objects.get(id=id)
     
